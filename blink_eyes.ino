@@ -1,60 +1,70 @@
-void blink_eyes_centered() {
-  #ifdef DEBUG 
-  Serial.println("blink_eyes");
+
+/*
+ *
+ */
+void blink_center(uint8_t count, uint32_t d1, uint32_t d2, uint32_t d3, uint32_t d4) {
+  #ifdef DEBUG
+  Serial.println("blink center");
   #endif
 
-  close_eyes_centered(0);
+  uint32_t stay_opened, stay_closed;
 
-  uint32_t d = get_delay(250, 500);
+  for (uint8_t c = 0; c < count; c++) {
+    close_eyes_centered(d1);
 
-//  #ifdef DEBUG
-//  Serial.print("waiting ");
-//  Serial.print(d);
-//  Serial.println(" milliseconds.");
-//  #endif
+    stay_closed = get_delay(d2/2, d2/2);
+    FastLED.delay(stay_closed);
 
-  delay(d);
+    open_eyes_centered(d3);
 
-  open_eyes_centered(0);
+    stay_opened = get_delay(d4/2, d4/2);
+    FastLED.delay(stay_opened);
+  }
 }
 
-void blink_eyes_left() {
+/*
+ *
+ */
+void blink_left(uint8_t count, uint32_t d1, uint32_t d2, uint32_t d3, uint32_t d4) {
   #ifdef DEBUG
-  Serial.println("blink_eyes_left");
+  Serial.println("blink right");
   #endif
 
-  close_eyes_left(0);
+  uint32_t stay_opened, stay_closed;
 
-  uint32_t d = get_delay(250, 500);
+  for (uint8_t c = 0; c < count; c++) {
+    close_eyes_left(d1);
 
-//  #ifdef DEBUG
-//  Serial.print("waiting ");
-//  Serial.print(d);
-//  Serial.println(" milliseconds.");
-//  #endif
+    stay_closed = get_delay(d2/2, d2/2);
+    FastLED.delay(stay_closed);
 
-  delay(d);
+    open_eyes_left(d3);
 
-  open_eyes_left(0);
+    stay_opened = get_delay(d4/2, d4/2);
+    FastLED.delay(stay_opened);
+  }
 }
 
-void blink_eyes_right() {
+/*
+ *
+ */
+void blink_right(uint8_t count, uint32_t d1, uint32_t d2, uint32_t d3, uint32_t d4) {
   #ifdef DEBUG
-  Serial.println("blink_eyes_right");
+  Serial.println("blink right");
   #endif
 
-  close_eyes_right(0);
+  uint32_t stay_opened, stay_closed;
 
-  uint32_t d = get_delay(250, 500);
+  for (uint8_t c = 0; c < count; c++) {
+    close_eyes_right(d1);
 
-//  #ifdef DEBUG
-//  Serial.print("waiting ");
-//  Serial.print(d);
-//  Serial.println(" milliseconds.");
-//  #endif
+    stay_closed = get_delay(d2/2, d2/2);
+    FastLED.delay(stay_closed);
 
-  delay(d);
+    open_eyes_right(d3);
 
-  open_eyes_right(0);
+    stay_opened = get_delay(d4/2, d4/2);
+    FastLED.delay(stay_opened);
+  }
 }
 
